@@ -17,8 +17,8 @@ const Header = () => {
 
   return (
     <header
-      className={`h-[80px] w-full transition-all duration-500 fixed top-0 left-0 right-0 ${
-        isScrolled ? "bg-transparent backdrop-blur-md " : "bg-black"
+      className={`h-[80px] w-full transition-all duration-500 fixed top-0 left-0 right-0 z-50 bg-transparent ${
+        isScrolled ? "backdrop-blur-[5px]" : "backdrop-blur-[1px]"
       }`}
     >
       <div className="container-page h-full flex justify-between items-center">

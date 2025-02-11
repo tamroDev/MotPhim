@@ -39,3 +39,7 @@ body {
   margin-left: auto;
   margin-right: auto;
 }
+
+.bg-banner {
+  background-image: url("/public/images/banner.webp");
+}
