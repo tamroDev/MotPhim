@@ -5,11 +5,11 @@ const AuthLayout = () => {
   return (
     <div className="bg-black sm:bg-[url('/public/images/banner.jpg')] h-screen bg-cover bg-center bg-no-repeat">
       <Header typeLayout={false} />
-      <div className="size-full bg-[#000000a6]">
+      <div className="h-max sm:size-full bg-[#000000a6] pb-4 sm:pb-0">
         <Outlet />
       </div>
       <footer className="bg-[#161616] text-gray-400 text-sm py-6 px-10">
-        <div className="max-w-6xl mx-auto py-12">
+        <div className="container-page mx-auto py-12">
           <p className="mb-10">Bạn có câu hỏi? Liên hệ với chúng tôi.</p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
             <a href="#" className="hover:underline">
@@ -17,6 +17,21 @@ const AuthLayout = () => {
             </a>
             <a href="#" className="hover:underline">
               Trung tâm trợ giúp
+            </a>
+            <a href="#" className="hover:underline">
+              Điều khoản sử dụng
+            </a>
+            <a href="#" className="hover:underline">
+              Điều khoản sử dụng
+            </a>
+            <a href="#" className="hover:underline">
+              Điều khoản sử dụng
+            </a>
+            <a href="#" className="hover:underline">
+              Điều khoản sử dụng
+            </a>
+            <a href="#" className="hover:underline">
+              Điều khoản sử dụng
             </a>
             <a href="#" className="hover:underline">
               Điều khoản sử dụng

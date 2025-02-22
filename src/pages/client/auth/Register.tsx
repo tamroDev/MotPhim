@@ -55,10 +55,10 @@ const Register = () => {
   };
 
   return (
-    <div className="size-full pt-[100px]">
+    <div className="sm:size-full h-max pt-[100px]">
       <form
         onSubmit={handleSubmit(handleRegister)}
-        className="w-[90%] mx-auto sm:w-[450px] bg-[#000000c2] backdrop-opacity-50 text-white py-[48px] px-[64px]"
+        className="w-[90%] mx-auto sm:w-[450px] bg-[#000000c2] backdrop-opacity-50 text-white sm:py-[48px] sm:px-[64px]"
       >
         <h1 className="text-[32px] font-medium mb-[40px]">Đăng ký</h1>
         <div className="flex flex-col gap-[20px] mb-[40px]">

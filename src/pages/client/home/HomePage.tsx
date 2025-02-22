@@ -35,7 +35,7 @@ const HomePage = () => {
                 type="submit"
               >
                 Bắt đầu
-                <i className="fa-solid fa-chevron-right"></i>
+                <i className="fa-solid fa-chevron-right ml-3 text-[15px]"></i>
               </Button>
             </div>
           </div>
