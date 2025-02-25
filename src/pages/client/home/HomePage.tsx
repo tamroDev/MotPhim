@@ -17,7 +17,7 @@ const HomePage = () => {
             Bạn đã sẵn sàng xem chưa? Nhập email để tạo hoặc kích hoạt lại tư
             cách thành viên của bạn.
           </p>
-          <div className="flex gap-3 w-full h-[72px] md:pt-[16px]">
+          <div className="flex gap-3 w-full h-[72px] md:pt-[16px] ">
             <input
               type="text"
               className="flex-[0_0_70%] border-[2px] border-[#757675] px-4 py-5 text-[16px] text-white rounded-sm placeholder:text-[#9d9d9d] bg-[#00000059] outline-white"
