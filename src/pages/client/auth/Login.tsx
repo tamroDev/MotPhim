@@ -1,26 +1,26 @@
-import { Link } from "react-router-dom";
-import Button from "../../../components/button/Button";
-import ButtonSocial from "../../../components/button/ButtonSocial";
-import Input from "../../../components/Input";
-import * as yup from "yup";
-import { emailRegex, passwordRegex } from "../../../ultils/regex";
-import { SubmitHandler, useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { IAccount } from "../../../types/auth.type";
-import MessageForm from "../../../components/message/MessageForm";
+import { Link } from 'react-router-dom';
+import Button from '../../../components/button/Button';
+import ButtonSocial from '../../../components/button/ButtonSocial';
+import Input from '../../../components/Input';
+import * as yup from 'yup';
+import { emailRegex, passwordRegex } from '../../../ultils/regex';
+import { SubmitHandler, useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { IAccount } from '../../../types/auth.type';
+import MessageForm from '../../../components/message/MessageForm';
 
 const schema = yup.object({
   email: yup
     .string()
     .trim()
-    .required("Trường này là bắt buộc !")
-    .matches(emailRegex, { message: "Email không đúng định dạng !" }),
+    .required('Trường này là bắt buộc !')
+    .matches(emailRegex, { message: 'Email không đúng định dạng !' }),
   password: yup
     .string()
     .trim()
-    .required("Trường này là bắt buộc !")
+    .required('Trường này là bắt buộc !')
     .matches(passwordRegex, {
-      message: "Mật khẩu ít nhất 1 chữ cái viết hoa và 1 ký tự đặt biệt!",
+      message: 'Mật khẩu ít nhất 1 chữ cái viết hoa và 1 ký tự đặt biệt!',
     }),
 });
 
@@ -31,15 +31,15 @@ const Login = () => {
     formState: { errors },
   } = useForm({
     resolver: yupResolver(schema),
-    mode: "onChange",
+    mode: 'onChange',
   });
 
-  const handleLogin: SubmitHandler<IAccount> = async (data) => {
+  const handleLogin: SubmitHandler<IAccount> = async data => {
     console.log(data);
   };
 
   return (
-    <div className="size-full pt-[100px]">
+    <div className="size-full pt-[100px] pb-[20px]">
       <form
         onSubmit={handleSubmit(handleLogin)}
         className="w-[90%] sm:w-[450px] bg-[#000000c2] backdrop-opacity-50 mx-auto text-white sm:py-[48px] sm:px-[64px]"
@@ -85,7 +85,7 @@ const Login = () => {
         </div>
         <div className="w-full text-center mb-[20px]">
           <Link
-            to={"#"}
+            to={'#'}
             className="text-white font-light text-[15px]  underline tracking-[0.2px]"
           >
             Bạn quên mật khẩu?
@@ -101,18 +101,18 @@ const Login = () => {
           <label htmlFor="forgetMe">Ghi nhớ tôi</label>
         </div>
         <div className="text-[#b7b7b7] text-[15px] tracking-[0.2px] mb-[20px]">
-          Bạn mới sử dụng MotPhim?{" "}
+          Bạn mới sử dụng MotPhim?{' '}
           <Link
             className="text-white font-medium text-[16px] hover:underline"
-            to={"/auth/register"}
+            to={'/auth/register'}
           >
             Đăng ký ngay.
           </Link>
         </div>
         <div className="text-[#b7b7b7] text-[12px] tracking-[0.2px] ">
           Trang này được Google reCAPTCHA bảo vệ để đảm bảo bạn không phải là
-          robot.{" "}
-          <Link to={"#"} className="text-blue-500 hover:underline">
+          robot.{' '}
+          <Link to={'#'} className="text-blue-500 hover:underline">
             Tìm hiểu thêm.
           </Link>
         </div>

@@ -1,38 +1,38 @@
-import { Link } from "react-router-dom";
-import Button from "../../../components/button/Button";
-import Input from "../../../components/Input";
-import * as yup from "yup";
-import { emailRegex, numberRegex, passwordRegex } from "../../../ultils/regex";
-import { SubmitHandler, useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { IAccount } from "../../../types/auth.type";
-import MessageForm from "../../../components/message/MessageForm";
+import { Link } from 'react-router-dom';
+import Button from '../../../components/button/Button';
+import Input from '../../../components/Input';
+import * as yup from 'yup';
+import { emailRegex, numberRegex, passwordRegex } from '../../../ultils/regex';
+import { SubmitHandler, useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { IAccount } from '../../../types/auth.type';
+import MessageForm from '../../../components/message/MessageForm';
 
 const schema = yup.object({
   email: yup
     .string()
     .trim()
-    .required("Trường này là bắt buộc !")
-    .matches(emailRegex, { message: "Email không đúng định dạng !" }),
+    .required('Trường này là bắt buộc !')
+    .matches(emailRegex, { message: 'Email không đúng định dạng !' }),
   tel: yup
     .string()
     .trim()
-    .required("Trường này là bắt buộc !")
-    .matches(numberRegex, { message: "Số điện thoại không đúng định dạng" }),
+    .required('Trường này là bắt buộc !')
+    .matches(numberRegex, { message: 'Số điện thoại không đúng định dạng' }),
   password: yup
     .string()
     .trim()
-    .required("Trường này là bắt buộc !")
+    .required('Trường này là bắt buộc !')
     .matches(passwordRegex, {
-      message: "Mật khẩu ít nhất 1 chữ cái viết hoa và 1 ký tự đặt biệt!",
+      message: 'Mật khẩu ít nhất 1 chữ cái viết hoa và 1 ký tự đặt biệt!',
     }),
   confirmPassword: yup
     .string()
     .trim()
-    .required("Trường này là bắt buộc !")
+    .required('Trường này là bắt buộc !')
     .oneOf(
-      [yup.ref("password")],
-      "Mật khẩu xác nhận phải khớp với mật khẩu đã nhập !"
+      [yup.ref('password')],
+      'Mật khẩu xác nhận phải khớp với mật khẩu đã nhập !'
     ),
 });
 
@@ -44,18 +44,20 @@ const Register = () => {
     formState: { errors },
   } = useForm({
     resolver: yupResolver(schema),
-    mode: "onChange",
+    mode: 'onChange',
   });
 
-  const handleRegister: SubmitHandler<IAccount> = async (data) => {
+  const handleRegister: SubmitHandler<IAccount> = async data => {
     try {
       console.log(data);
       reset();
-    } catch (error) {}
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
-    <div className="sm:size-full h-max pt-[100px]">
+    <div className="sm:size-full h-max pt-[100px] pb-[20px]">
       <form
         onSubmit={handleSubmit(handleRegister)}
         className="w-[90%] mx-auto sm:w-[450px] bg-[#000000c2] backdrop-opacity-50 text-white sm:py-[48px] sm:px-[64px]"
@@ -64,7 +66,7 @@ const Register = () => {
         <div className="flex flex-col gap-[20px] mb-[40px]">
           <div>
             <Input
-              name={"email"}
+              name={'email'}
               className="bg-[#38373777]"
               type="text"
               content="Email"
@@ -75,7 +77,7 @@ const Register = () => {
 
           <div>
             <Input
-              name={"tel"}
+              name={'tel'}
               className="bg-[#38373777]"
               type="text"
               content="Số điện thoại"
@@ -86,7 +88,7 @@ const Register = () => {
 
           <div>
             <Input
-              name={"password"}
+              name={'password'}
               className="bg-[#38373777]"
               type="password"
               content="Mật khẩu"
@@ -97,7 +99,7 @@ const Register = () => {
 
           <div>
             <Input
-              name={"confirmPassword"}
+              name={'confirmPassword'}
               className="bg-[#38373777]"
               type="password"
               content="Xác nhận mật khẩu"
@@ -113,25 +115,25 @@ const Register = () => {
         />
         <div className="w-full text-center mb-[20px]">
           <Link
-            to={"#"}
+            to={'#'}
             className="text-white font-light text-[15px]  underline tracking-[0.2px]"
           >
             Bạn quên mật khẩu?
           </Link>
         </div>
         <div className="text-[#b7b7b7] text-[15px] tracking-[0.2px] mb-[20px]">
-          Bạn đã có tài khoản?{" "}
+          Bạn đã có tài khoản?{' '}
           <Link
             className="text-white font-medium text-[16px] hover:underline"
-            to={"/auth/login"}
+            to={'/auth/login'}
           >
             Đăng nhập ngay.
           </Link>
         </div>
         <div className="text-[#b7b7b7] text-[12px] tracking-[0.2px] ">
           Trang này được Google reCAPTCHA bảo vệ để đảm bảo bạn không phải là
-          robot.{" "}
-          <Link to={"#"} className="text-blue-500 hover:underline">
+          robot.{' '}
+          <Link to={'#'} className="text-blue-500 hover:underline">
             Tìm hiểu thêm.
           </Link>
         </div>

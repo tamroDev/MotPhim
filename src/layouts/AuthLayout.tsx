@@ -1,11 +1,12 @@
-import { Outlet } from "react-router-dom";
-import Header from "./components/Header";
+import { Outlet } from 'react-router-dom';
+import Header from './components/Header';
 
 const AuthLayout = () => {
   return (
-    <div className="bg-black sm:bg-[url('/public/images/banner.jpg')] h-screen bg-cover bg-center bg-no-repeat">
+    <div className=" h-max bg-cover bg-center bg-no-repeat">
       <Header typeLayout={false} />
-      <div className="h-max sm:size-full bg-[#000000a6] pb-4 sm:pb-0">
+      <div className="h-max sm:size-full sm:pb-0 bg-black sm:bg-[url('/public/images/banner.jpg')] bg-no-repeat bg-cover bg-center relative">
+        <div className="bg-[#000000a6] absolute inset-0"></div>
         <Outlet />
       </div>
       <footer className="bg-[#161616] text-gray-400 text-sm py-6 px-10">
