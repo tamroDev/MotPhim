@@ -1,5 +1,11 @@
 @import "tailwindcss";
 
+@layer utilities {
+  .clip-path-wave {
+    clip-path: path("M0,0 C20,40 20,60 0,100");
+  }
+}
+
 @font-face {
   font-family: "NetflixFont";
   src: url("/public/font/NetflixFont/NetflixSans-Light.otf") format("opentype");
@@ -35,11 +41,17 @@ body {
 }
 
 .container-page {
-  width: 80%;
+  max-width: 75%;
   margin-left: auto;
   margin-right: auto;
 }
 
 .bg-banner {
-  background-image: url("/public/images/banner.webp");
+  background-image: url("/public/images/banner.jpg");
+}
+
+@media (max-width: 640px) {
+  .container-page {
+    max-width: 90%;
+  }
 }
