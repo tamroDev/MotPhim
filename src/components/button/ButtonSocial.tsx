@@ -17,7 +17,7 @@ const ButtonSocial: FC<IButton> = ({
   return (
     <Link
       to={path}
-      className={`flex justify-between items-center w-full h-[40px] px-[18%] bg-white text-black font-medium tracking-[0.5px] rounded-sm ${className} `}
+      className={`flex justify-between items-center w-full h-[40px] px-[20%] sm:px-[18%] bg-white text-black font-medium tracking-[0.5px] rounded-sm ${className} `}
     >
       {children}
       <img className="h-[28px]" src={logoSocial} />

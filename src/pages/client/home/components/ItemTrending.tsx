@@ -12,7 +12,7 @@ const ItemTrending: FC<IItemTrending> = ({ index, src }) => {
         style={{
           backgroundImage: `url(${src})`,
         }}
-        className={`w-[90%] h-[110px] sm:h-[150px] xl:h-[300px] rounded-lg bg-no-repeat bg-cover mx-auto relative cursor-pointer flex justify-center items-center`}
+        className={`w-[90%] h-[130px] sm:h-[170px] md:h-[200px] lg:h-[230px]  xl:h-[300px] rounded-lg bg-no-repeat bg-cover mx-auto relative cursor-pointer flex justify-center items-center`}
       >
         <div className="absolute bottom-0 left-0 translate-x-[-20%] font-medium text-[100px]">
           <span
