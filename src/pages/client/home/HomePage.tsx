@@ -1,11 +1,23 @@
+import { useEffect, useState } from 'react';
 import Button from '../../../components/button/Button';
-import { arrRason, arrTrending } from '../../../dataMockup/homeData';
+import { arrRason } from '../../../dataMockup/homeData';
 import settings from '../../../ultils/settingSlick';
 import ItemReason from './components/ItemReason';
 import ItemTrending from './components/ItemTrending';
 import Slider from 'react-slick';
+import { getNewMovie } from '../../../services/movies.service';
+import { Movie } from '../../../types/movies.type';
 
 const HomePage = () => {
+  const [newMovie, setNewMovie] = useState<Movie[]>([]);
+
+  useEffect(() => {
+    (async () => {
+      const result = await getNewMovie(1);
+
+      setNewMovie(result.items);
+    })();
+  }, []);
   return (
     <div>
       <div className="bg-banner bg-cover bg-center bg-no-repeat w-full h-[50vh] sm:h-[80vh] lg:h-[100vh] relative">
@@ -18,7 +30,7 @@ const HomePage = () => {
               khác
             </h1>
             <h3 className="text-[12px] text-white sm:text-[20px] font-medium mb-[12px] sm:mb-[1rem] md:mb-[2rem]">
-              Giá từ 70.000 ₫. Hủy bất kỳ lúc nào.
+              Đăng ký để nhận tin tức về các phim mới nhất
             </h3>
             <p className="text-[10px] text-white sm:text-[15px] leading-[16px] sm:leading-[24px] mb-[12px] sm:mb-[0.5rem]">
               Bạn đã sẵn sàng xem chưa? Nhập email để tạo hoặc kích hoạt lại tư
@@ -45,11 +57,17 @@ const HomePage = () => {
         <div className="container-page">
           <div className="pt-[50px]">
             <h1 className="text-[24px] font-medium mb-[30px] px-2">
-              Hiện đang thịnh hành
+              Danh sách phim mới
             </h1>
             <Slider {...settings}>
-              {arrTrending.map((item, index) => (
-                <ItemTrending key={index} src={item.src} index={index + 1} />
+              {newMovie.map((item, index) => (
+                <ItemTrending
+                  slug={item.slug}
+                  key={index}
+                  src={item.poster_url}
+                  nameMovie={item.name}
+                  yearOfRelease={item.year}
+                />
               ))}
             </Slider>
           </div>
